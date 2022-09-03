@@ -1,21 +1,22 @@
 package br.unicap.thread;
 
-import static br.unicap.thread.Actions.check;
+import java.util.Random;
 
 public class RespiratorySystem implements Runnable {
 
     @Override
     public void run() {
-        //verifica com média frequência o sistema respiratório
         try {
+            Random random = new Random();
+            int value;
             for (int i = 0; i < 20; i++) {
-                check("\u001B[31m", "Respiratory System");
-                Thread.sleep(1000);
+                value = random.nextInt((99 - 95) + 1) + 95;
+                System.out.println("\u001B[34mSpO2: " + value + " %");
+                Thread.sleep(400);
             }
-            System.out.println("CICLO DE VIDA DA THREAD 2 ACABOU!");
+            System.out.println("\u001B[34m!!! CICLO DE VIDA DA THREAD 2 ACABOU !!!");
         } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
         }
-
     }
-
 }

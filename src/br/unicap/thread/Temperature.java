@@ -2,7 +2,7 @@ package br.unicap.thread;
 
 import java.util.Random;
 
-public class Heart implements Runnable  {
+public class Temperature implements Runnable {
 
     @Override
     public void run() {
@@ -10,11 +10,11 @@ public class Heart implements Runnable  {
             Random random = new Random();
             int value;
             for (int i = 0; i < 20; i++) {
-                value = random.nextInt((80 - 60) + 1) + 50;
-                System.out.println("\u001B[32mECG: "+ value +" BPM");
+                value = random.nextInt((37 - 36) + 1) + 36;
+                System.out.println("\u001B[33mTEMP: "+ value +" C");
                 Thread.sleep(400);
             }
-            System.out.println("\u001B[32m!!! CICLO DE VIDA DA THREAD 1 ACABOU !!!");
+            System.out.println("\u001B[33m!!! CICLO DE VIDA DA THREAD 3 ACABOU !!!");
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
